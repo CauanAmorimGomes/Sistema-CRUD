@@ -1,0 +1,332 @@
+/* style.css - Versão Mais Bonita */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #007bff; /* Azul vibrante */
+    --primary-hover-color: #0056b3;
+    --secondary-color: #6c757d; /* Cinza para ações secundárias */
+    --secondary-hover-color: #545b62;
+    --success-color: #28a745; /* Verde */
+    --success-hover-color: #1e7e34;
+    --danger-color: #dc3545; /* Vermelho */
+    --danger-hover-color: #b02a37;
+    --light-bg-color: #f8f9fa;
+    --white-color: #ffffff;
+    --text-color: #495057;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --table-header-bg: #eef2f7; /* Fundo mais suave para cabeçalho da tabela */
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--light-bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo se o conteúdo for menor que a tela */
+    min-block-size: 100vh;
+}
+
+.container {
+    max-inline-size: 960px;
+    inline-size: 100%;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: var(--white-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+h1 {
+    color: #343a40;
+    text-align: center;
+    margin-block-end: 30px;
+    font-weight: 600;
+    font-size: 2.2em;
+}
+
+h2 {
+    color: #343a40;
+    margin-block-end: 20px;
+    font-weight: 500;
+    font-size: 1.6em;
+    border-block-end: 2px solid var(--primary-color);
+    padding-block-end: 10px;
+    display: inline-block; /* Para que o border-bottom não ocupe a largura toda */
+}
+
+.form-container, .list-container {
+    margin-block-end: 40px;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: var(--white-color); /* Pode ser um pouco diferente do container principal se desejar */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-block-end: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-block-end: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+#searchInput {
+    inline-size: calc(100% - 24px); /* Considera padding e border */
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: var(--font-family);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+#searchInput:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-block-size: 80px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-block-start: 25px;
+}
+
+.form-actions button,
+.action-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    font-family: var(--font-family);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-actions button:hover,
+.action-buttons button:hover {
+    transform: translateY(-1px);
+}
+
+#saveButton {
+    background-color: var(--success-color);
+    color: white;
+}
+#saveButton:hover {
+    background-color: var(--success-hover-color);
+}
+
+#clearButton {
+    background-color: var(--secondary-color);
+    color: white;
+}
+#clearButton:hover {
+    background-color: var(--secondary-hover-color);
+}
+
+#searchInput {
+    margin-block-end: 20px;
+}
+
+table {
+    inline-size: 100%;
+    border-collapse: separate; /* Mudei para separate para usar border-spacing */
+    border-spacing: 0; /* Remova o espaçamento padrão se usar bordas nas células */
+    margin-block-start: 20px;
+    border: 1px solid var(--border-color); /* Borda em volta da tabela */
+    border-radius: 8px; /* Cantos arredondados para a tabela */
+    overflow: hidden; /* Para que o border-radius funcione com o header */
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: start;
+    border-block-end: 1px solid var(--border-color); /* Linhas horizontais */
+}
+
+table th {
+    background-color: var(--table-header-bg);
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+table td {
+    background-color: var(--white-color);
+}
+
+table tr:last-child td {
+    border-block-end: none; /* Remove a borda inferior da última linha */
+}
+
+/* Hover sutil nas linhas para melhor leitura */
+table tbody tr:hover td {
+    background-color: #f1f5f9; /* Um cinza azulado muito claro */
+}
+
+.action-buttons button {
+    margin-inline-end: 8px;
+    padding: 8px 12px; /* Botões de ação um pouco menores */
+    font-size: 0.85em;
+}
+.action-buttons button:last-child {
+    margin-inline-end: 0;
+}
+
+.edit-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+.edit-btn:hover {
+    background-color: var(--primary-hover-color);
+}
+
+.delete-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+.delete-btn:hover {
+    background-color: var(--danger-hover-color);
+}
+
+.hidden {
+    display: none !important; /* Garante que esta classe sempre oculte */
+}
+
+#noItemsMessage {
+    text-align: center;
+    color: #777;
+    margin-block-start: 25px;
+    font-style: italic;
+    padding: 20px;
+    background-color: var(--white-color);
+    border-radius: 6px;
+    border: 1px dashed var(--border-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 1.9em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+    .form-actions button {
+        inline-size: 100%;
+    }
+
+    /* Tabela responsiva - mantém o estilo anterior que é eficaz */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    table {
+        border: none; /* Remove a borda principal da tabela no modo responsivo */
+        border-radius: 0;
+    }
+    table thead tr {
+        position: absolute;
+        inset-block-start: -9999px;
+        inset-inline-start: -9999px;
+    }
+    table tr {
+        border: 1px solid var(--border-color);
+        margin-block-end: 15px;
+        border-radius: 8px; /* Adiciona borda arredondada a cada "card" de item */
+        background-color: var(--white-color);
+        overflow: hidden; /* Garante que o conteúdo não escape do border-radius */
+    }
+    table td {
+        border: none;
+        border-block-end: 1px solid #f0f0f0; /* Linha divisória suave entre os campos */
+        position: relative;
+        padding-inline-start: 45%; /* Espaço para o label */
+        padding-block-start: 12px;
+        padding-block-end: 12px;
+        text-align: end;
+        min-block-size: 24px; /* Garante altura mínima */
+    }
+    table td:last-child { /* Ações */
+         border-block-end: none;
+    }
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        inset-inline-start: 15px; /* Ajuste de padding */
+        inline-size: calc(40% - 20px); /* Largura do label */
+        padding-inline-end: 10px;
+        font-weight: 600; /* Labels mais destacados */
+        text-align: start;
+        white-space: nowrap;
+        color: var(--primary-color); /* Cor do label */
+    }
+    .action-buttons {
+        text-align: end;
+        padding: 15px; /* Melhor espaçamento para os botões de ação */
+        background-color: #f9fafb; /* Fundo sutil para a área de ações */
+    }
+    .action-buttons button {
+        margin-inline-end: 0;
+        margin-inline-start: 10px;
+    }
+    #noItemsMessage {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.7em; }
+    h2 { font-size: 1.3em; }
+    .container { padding: 15px; }
+
+    .form-group input[type="text"],
+    .form-group textarea,
+    #searchInput {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    .form-actions button,
+    .action-buttons button {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+    table td {
+        padding-inline-start: 40%;
+    }
+    table td::before {
+        inline-size: calc(35% - 15px);
+    }
+}
